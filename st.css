@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+*{
+  margin: 0px;
+  padding: 0px;
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+}
+
+.card{
+  max-width: 60vw;
+  min-width: 320px;
+  margin: 100px auto;
+  display: flex;
+  font-size: 13px;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 5px 5px 20px 5px hsl(212, 23%, 69%);
+  border-radius: 10px;
+}
+
+.cardItem{
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.cardHead{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.cardHead img{
+  display: block;
+  max-width: 100%;
+  min-width: 230px;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.cardBody{
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.cardBody h1{
+  color: hsl(217, 19%, 35%);
+  font-weight: 700;
+}
+
+.cardBody p{
+  color: hsl(214, 17%, 51%);
+  font-weight: 400;
+}
+
+.cardProfile{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardProfileGray{
+  background-color:  hsl(217, 19%, 35%);
+  padding: 16px 32px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.cardProfileGray p{
+  color: hsl(212, 23%, 69%);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.cardProfile img{
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.cardShareBtn{
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: hsl(210, 46%, 95%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.cardShareBtnBefore{
+  color:hsl(210, 46%, 95%);
+  background-color:hsl(217, 19%, 35%);
+  border-radius: 15px;
+  position: absolute;
+  top: -75px;
+  right: -100px;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.imgBlock{
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+.cardShareBtnAfter{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top:-80%;
+  right: 10px;
+  z-index: 1;
+  background-color: hsl(217, 19%, 35%);
+  transform: rotate(45deg);
+}
+
+.cardShareBtn img, .shareBtnImg{  
+  width: 18px;
+  height: 14px;
+}
+
+@media screen and (min-width: 811px){
+  .card{
+    max-width: 70vw;
+    min-width: 650px;
+  }
+
+  .cardProfileGray{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 810px){
+  .card{
+    flex-direction: column;
+  }
+
+  .cardHead{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .cardHead img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .cardBody{
+    
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .cardProfileGray{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .cardShareBtn{
+    width: 34px;
+    height: 34px;
+  }
+}
