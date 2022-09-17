@@ -1,12 +1,17 @@
-let shareBarBefore = document.querySelector(".cardShareBtnBefore");
-let shareBarAfter = document.querySelector(".cardShareBtnAfter");
+
 let cardShareBtn = document.querySelector(".cardShareBtn");
 let cardProfile = document.querySelector(".cardProfile");
 let cardProfileClone = cardProfile.cloneNode("true");
 console.log(cardProfileClone.children);
 
-cardShareBtn.addEventListener("click", dispBar);
 
+//mobile view share button bar
+if(window.matchMedia("(max-width: 810px)").matches){
+  console.log("mobile view");
+  cardShareBtn.addEventListener("click", dispBar);
+}
+
+//event handler for displaying share bar in mobile view 
 function dispBar() {
   console.log("share bar visible");
 
@@ -47,11 +52,9 @@ function dispBar() {
 
     shareBtnCont.addEventListener("click", hideBar);
   }
-  else {
-    console.log("desktop view");
-  }
 }
 
+//event handler for displaying share bar in desktop view
 function hideBar() {
   if (window.matchMedia("(max-width: 810px)").matches) {
     console.log("share bar hidden");
@@ -62,7 +65,71 @@ function hideBar() {
     cardBody.appendChild(cardProfileClone);
     cardProfileClone.addEventListener("click", dispBar);
   }
-  else{
-    console.log("desktop view");
+}
+
+let flipState = 0;
+
+//desktop view share button bar
+if (window.matchMedia("(min-width: 811px)").matches){
+  console.log(window.matchMedia("(min-width: 811px)"));
+  console.log("desktop view");
+  cardShareBtn.addEventListener("click",flipper);
+}
+
+function flipper(){
+  if(flipState === 0){
+    flipState++;
+    console.log("flipped state = ",flipState);
+    shareBarDisp();
   }
+  else{
+    flipState--;
+    console.log("flipped state = ",flipState);
+    shareBarHide();
+  }
+}
+
+let shareBar = document.createElement("div");
+  let shareBarTitle = document.createElement("p");
+  let imgOne = document.createElement("img");
+  let imgTwo = document.createElement("img");
+  let imgThree = document.createElement("img");
+  let shareBarAfter = document.createElement("div");
+
+  shareBar.classList.add("cardShareBtnBefore");
+  imgOne.id = "imgBlock";
+  imgTwo.id = "imgBlock";
+  imgThree.id = "imgBlock";
+  shareBarAfter.classList.add("cardShareBtnAfter");
+
+  shareBarTitle.innerText = "share";
+  shareBarTitle.style.color = "hsl(212, 23%, 69%)";
+  shareBarTitle.style.letterSpacing = "2px";
+  imgOne.src = "./images/icon-facebook.svg";
+  imgTwo.src = "./images/icon-twitter.svg";
+  imgThree.src = "./images/icon-pinterest.svg";
+  
+  shareBar.appendChild(shareBarTitle);
+  shareBar.appendChild(imgOne);
+  shareBar.appendChild(imgTwo);
+  shareBar.appendChild(imgThree);
+
+
+  cardShareBtn.insertBefore(shareBar,cardShareBtn.querySelector("img"));
+  cardShareBtn.appendChild(shareBarAfter);
+
+  shareBar.style.display = "none";
+  shareBarAfter.style.display = "none";
+
+function shareBarDisp(){
+  console.log("share bar displaying");
+  shareBar.style.display = "flex";
+  shareBarAfter.style.display = "block";
+}
+
+function shareBarHide(){
+  console.log("share bar hiding");
+  shareBar.style.display = "none";
+  shareBarAfter.style.display = "none";
+
 }
